@@ -6,7 +6,7 @@ pipeline {
                 sh 'rm -rf build'
                 sh 'mkdir build'
                 sh 'touch build/bike.txt'
-                sh 'echo "Fahrradrahmen montieren" >> build/bike.txt'
+                sh 'echo "Fahrradrahmen montieren\nRäder montieren\nPadele montieren\nLackierung" >> build/bike.txt'
             }
         }
         stage('Test'){
@@ -16,7 +16,7 @@ pipeline {
                     if (fileExists(filePath)) {
                         echo "Die Datei exitiert ${filePath}"
                         def fileContent = readFile(filePath).trim()
-                        def expectedContent = 'Fahrradrahmen montieren'
+                        def expectedContent = 'Fahrradrahmen montieren\nRäder montieren\nPadele montieren\nLackierung'
                         if (fileContent == expectedContent) {
                             echo "Der Inhalt stimmt überein"
                         }
