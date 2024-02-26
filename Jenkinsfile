@@ -9,12 +9,14 @@ pipeline {
                 sh 'echo "Fahrradrahmen montieren" >> build/bike.txt'
             }
         }
-        stage('Test') {
-            script {
-                def filePath = 'build/bike.txt'
-                if (fileExists(filePath)) {
-                    echo 'Die Datei existiert ${filePath}'
-            }
+        stage('Test'){
+            steps {
+                script {
+                    def filePath = 'build/bike.txt'
+                    if (fileExists(filePath)) {
+                        echo "Die Datei exitiert ${filePath}"
+                    }
+                }
             }
         }
     }
