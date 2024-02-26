@@ -9,5 +9,11 @@ pipeline {
                 sh 'echo "Fahrradrahmen montieren" >> build/bike.txt'
             }
         }
+        stage('Test') {
+            def filePath = 'build/bike.txt'
+            if (dileExists(filePath)) {
+                echo 'Die Datei existiert ${filePath}'
+            }
+        }
     }
 }
