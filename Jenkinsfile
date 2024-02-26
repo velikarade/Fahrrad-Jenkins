@@ -2,7 +2,7 @@ pipeline {
     agent any
     stages{
         stage('Build') {
-            script {
+            steps {
                 sh 'rm -rf build'
                 sh 'mkdir build'
                 sh 'touch build/bike.txt'
