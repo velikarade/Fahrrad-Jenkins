@@ -34,6 +34,7 @@ pipeline {
     post {
         always {
             archiveArtifacts 'build/bike.txt'
+            echo 'Die Datei ist archiviert'
         }
     }
 }
