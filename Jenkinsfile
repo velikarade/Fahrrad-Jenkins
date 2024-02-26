@@ -15,6 +15,17 @@ pipeline {
                     def filePath = 'build/bike.txt'
                     if (fileExists(filePath)) {
                         echo "Die Datei exitiert ${filePath}"
+                        def fileContent = readFile(filePath).trim()
+                        def expectedContent = 'Fahrradrahmen montieren'
+                        if (fileContent == expectedContent) {
+                            echo "Der Inhalt stimmt überein"
+                        }
+                        else {
+                            error "Der Inhalt stimmt nicht überein"
+                        }
+                    }
+                    else {
+                        error "Die Datei exiriert nicht"
                     }
                 }
             }
