@@ -10,9 +10,11 @@ pipeline {
             }
         }
         stage('Test') {
-            def filePath = 'build/bike.txt'
-            if (fileExists(filePath)) {
-                echo 'Die Datei existiert ${filePath}'
+            script {
+                def filePath = 'build/bike.txt'
+                if (fileExists(filePath)) {
+                    echo 'Die Datei existiert ${filePath}'
+            }
             }
         }
     }
