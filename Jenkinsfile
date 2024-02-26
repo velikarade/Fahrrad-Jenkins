@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Test') {
             def filePath = 'build/bike.txt'
-            if (dileExists(filePath)) {
+            if (fileExists(filePath)) {
                 echo 'Die Datei existiert ${filePath}'
             }
         }
